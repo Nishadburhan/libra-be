@@ -1,10 +1,10 @@
 const express = require('express');
+const booksRoute = require('./routes');
 const app = express();
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
+app.use('/api', booksRoute);
 
-app.get('/', (req, res) => {
-    res.send("Hello World!");
-});
-
-app.listen(3000, () => {
-    console.log(`App is running on Port: 3000`);
+app.listen(PORT, () => {
+    console.log(`App is running on Port: ${PORT}`);
 });
